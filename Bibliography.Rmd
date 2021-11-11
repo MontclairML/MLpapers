@@ -29,26 +29,13 @@ authornote: |
   Enter author note here.
 
 abstract: |
-  One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any discipline.
-  
-  Two to three sentences of **more detailed background**, comprehensible  to scientists in related disciplines.
-  
-  One sentence clearly stating the **general problem** being addressed by  this particular study.
-  
-  One sentence summarizing the main result (with the words "**here we show**" or their equivalent).
-  
-  Two or three sentences explaining what the **main result** reveals in direct comparison to what was thought to be the case previously, or how the  main result adds to previous knowledge.
-  
-  One or two sentences to put the results into a more **general context**.
-  
-  Two or three sentences to provide a **broader perspective**, readily comprehensible to a scientist in any discipline.
-  
-  <!-- https://tinyurl.com/ybremelq -->
+ what
+ 
   
 keywords          : "keywords"
 wordcount         : "X"
 
-bibliography      : ["r-references.bib"]
+bibliography      : ["r-references.bib", "ml-references.bib"]
 
 floatsintext      : no
 figurelist        : no
@@ -73,8 +60,8 @@ r_refs("r-references.bib")
 *Sajjadiani, S., Sojourner, A. J., Kammeyer-Mueller, J. D., & Mykerezi, E. (2019). Using machine learning to translate applicant work history into predictors of performance and turnover. Journal of Applied Psychology, 104(10), 1207.*
 Work experience relevance, tenure in previous positions, applicant attributions of previous turnover as involuntary, applicant attributions of previous turnover to avoiding bad jobs, and applicant attributions of previous turnover to approaching a better job were all used as predictors of performance and turnover using ML algorithms (Naive Bayes Classification). Results matched previous theories of selection, which indicates that ML is a reliable method when seeking to analyze information in text form in a quick and automated way. Idea for dissertation: could do the same thing but with a more general sample instead of schools. 
 
-
-
+@sajjadiani2019using
+@gonzalez2019s
 
 ```{r analysis-preferences}
 # Seed for random number generation
