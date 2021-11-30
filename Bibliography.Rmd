@@ -60,8 +60,17 @@ r_refs("r-references.bib")
 *Sajjadiani, S., Sojourner, A. J., Kammeyer-Mueller, J. D., & Mykerezi, E. (2019). Using machine learning to translate applicant work history into predictors of performance and turnover. Journal of Applied Psychology, 104(10), 1207.*
 Work experience relevance, tenure in previous positions, applicant attributions of previous turnover as involuntary, applicant attributions of previous turnover to avoiding bad jobs, and applicant attributions of previous turnover to approaching a better job were all used as predictors of performance and turnover using ML algorithms (Naive Bayes Classification). Results matched previous theories of selection, which indicates that ML is a reliable method when seeking to analyze information in text form in a quick and automated way. Idea for dissertation: could do the same thing but with a more general sample instead of schools. 
 
+
+*Gonzalez, O. (2021). Psychometric and machine learning approaches for diagnostic assessment and tests of individual classification. Psychological Methods, 26(2), 236.*
+Comparison between ML methods for test classification vs traditional psychometric methods. Methods that use decision trees naturally seek interactions between items, while methods that use linear models need you to specify if there is an interaction, otherwise they ignore it. Also, 
+
+
+
+
 @sajjadiani2019using
 @gonzalez2019s
+@gonzalez2021psychometric
+
 
 ```{r analysis-preferences}
 # Seed for random number generation
