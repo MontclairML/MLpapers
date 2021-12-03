@@ -62,7 +62,14 @@ Work experience relevance, tenure in previous positions, applicant attributions 
 
 
 *Gonzalez, O. (2021). Psychometric and machine learning approaches for diagnostic assessment and tests of individual classification. Psychological Methods, 26(2), 236.*
-Comparison between ML methods for test classification vs traditional psychometric methods. Methods that use decision trees naturally seek interactions between items, while methods that use linear models need you to specify if there is an interaction, otherwise they ignore it. Also, 
+Comparison between ML methods for test classification vs traditional psychometric methods. Methods that use decision trees naturally seek interactions between items, while methods that use linear models need you to specify if there is an interaction, otherwise they ignore it. 
+
+
+*Long, Y., Liu, J., Fang, M., Wang, T., & Jiang, W. (2018, May). Prediction of employee promotion based on personal basic features and post features. In Proceedings of the International Conference on Data Processing and Applications (pp. 5-10).*
+Data with missing variables for some respondents but not others benefit from ML prediction methods. 
+
+
+
 
 
 
