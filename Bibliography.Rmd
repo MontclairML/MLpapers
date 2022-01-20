@@ -57,6 +57,19 @@ r_refs("r-references.bib")
 ```
 
 
+
+*** Ideas for lit review ***
+
+ML vs regression as a function of sample size, number of variables, and maybe other data related properties. 
+
+ML for decision making when promoting.
+
+Using ML to account for covariates (with regression you need to specify covariates, not with ML)
+
+ML reliability when seeking to analyze information in text form quickly, with a different sample other than schools.
+
+
+
 *Sajjadiani, S., Sojourner, A. J., Kammeyer-Mueller, J. D., & Mykerezi, E. (2019). Using machine learning to translate applicant work history into predictors of performance and turnover. Journal of Applied Psychology, 104(10), 1207.*
 Work experience relevance, tenure in previous positions, applicant attributions of previous turnover as involuntary, applicant attributions of previous turnover to avoiding bad jobs, and applicant attributions of previous turnover to approaching a better job were all used as predictors of performance and turnover using ML algorithms (Naive Bayes Classification). Results matched previous theories of selection, which indicates that ML is a reliable method when seeking to analyze information in text form in a quick and automated way. Idea for dissertation: could do the same thing but with a more general sample instead of schools. 
 
