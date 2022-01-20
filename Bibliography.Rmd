@@ -60,13 +60,14 @@ r_refs("r-references.bib")
 
 *** Ideas for lit review ***
 
-ML vs regression as a function of sample size, number of variables, and maybe other data related properties. 
+1. ML vs regression as a function of data properties
+    + For example, sample size and number of variables would be likely important data characteristics, however, the systematic review itself would uncover other important (or unimportant) data related properties. 
 
-ML for decision making when promoting.
+2. ML for decision making when promoting.
 
-Using ML to account for covariates (with regression you need to specify covariates, not with ML)
+3. Using ML to account for covariates (with regression you need to specify covariates, not with ML)
 
-ML reliability when seeking to analyze information in text form quickly, with a different sample other than schools.
+4. ML reliability when seeking to analyze information in text form quickly, with a different sample other than schools.
 
 
 

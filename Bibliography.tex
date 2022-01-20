@@ -5,10 +5,14 @@
 \documentclass[
   english,
   man]{apa6}
+\title{The title}
+\author{First Author\textsuperscript{1} \& Ernst-August Doelle\textsuperscript{1,2}}
+\date{}
+
+\usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
@@ -44,7 +48,7 @@
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
-\usepackage{graphicx,grffile}
+\usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -70,6 +74,29 @@
   \let\oldsubparagraph\subparagraph
   \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 % Manuscript styling
 \usepackage{upgreek}
 \captionsetup{font=singlespacing,justification=justified}
@@ -123,17 +150,19 @@
 
 \linenumbers
 \usepackage{csquotes}
-\ifxetex
+\ifXeTeX
   % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
   \usepackage{polyglossia}
   \setmainlanguage[]{english}
 \else
-  \usepackage[shorthands=off,main=english]{babel}
+  \usepackage[main=english]{babel}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
 \fi
-
-\title{The title}
-\author{First Author\textsuperscript{1} \& Ernst-August Doelle\textsuperscript{1,2}}
-\date{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
 
 
 \authornote{
@@ -159,11 +188,38 @@ what
 \begin{document}
 \maketitle
 
+*** Ideas for lit review ***
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  ML vs regression as a function of data properties
+
+  \begin{itemize}
+  \tightlist
+  \item
+    For example, sample size and number of variables would be likely important data characteristics, however, the systematic review itself would uncover other important (or unimportant) data related properties.
+  \end{itemize}
+\item
+  ML for decision making when promoting.
+\item
+  Using ML to account for covariates (with regression you need to specify covariates, not with ML)
+\item
+  ML reliability when seeking to analyze information in text form quickly, with a different sample other than schools.
+\end{enumerate}
+
 \emph{Sajjadiani, S., Sojourner, A. J., Kammeyer-Mueller, J. D., \& Mykerezi, E. (2019). Using machine learning to translate applicant work history into predictors of performance and turnover. Journal of Applied Psychology, 104(10), 1207.}
 Work experience relevance, tenure in previous positions, applicant attributions of previous turnover as involuntary, applicant attributions of previous turnover to avoiding bad jobs, and applicant attributions of previous turnover to approaching a better job were all used as predictors of performance and turnover using ML algorithms (Naive Bayes Classification). Results matched previous theories of selection, which indicates that ML is a reliable method when seeking to analyze information in text form in a quick and automated way. Idea for dissertation: could do the same thing but with a more general sample instead of schools.
 
+\emph{Gonzalez, O. (2021). Psychometric and machine learning approaches for diagnostic assessment and tests of individual classification. Psychological Methods, 26(2), 236.}
+Comparison between ML methods for test classification vs traditional psychometric methods. Methods that use decision trees naturally seek interactions between items, while methods that use linear models need you to specify if there is an interaction, otherwise they ignore it.
+
+\emph{Long, Y., Liu, J., Fang, M., Wang, T., \& Jiang, W. (2018, May). Prediction of employee promotion based on personal basic features and post features. In Proceedings of the International Conference on Data Processing and Applications (pp.~5-10).}
+Data with missing variables for some respondents but not others benefit from ML prediction methods.
+
 Sajjadiani, Sojourner, Kammeyer-Mueller, and Mykerezi (2019)
-Gonzalez, Capman, Oswald, Theys, and Tomczak (2019)
+M. F. Gonzalez, Capman, Oswald, Theys, and Tomczak (2019)
+O. Gonzalez (2021)
 
 Center for creative leadership
 Bureau of labor statistics
@@ -186,7 +242,7 @@ We report how we determined our sample size, all data exclusions (if any), all m
 \hypertarget{data-analysis}{%
 \subsection{Data analysis}\label{data-analysis}}
 
-We used R (Version 4.0.3; R Core Team, 2020) and the R-package \emph{papaja} (Version 0.1.0.9997; Aust \& Barth, 2020) for all our analyses.
+We used R {[}Version 4.0.3; R Core Team (2020){]} and the R-package \emph{papaja} {[}Version 0.1.0.9997; Aust and Barth (2020){]} for all our analyses.
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
@@ -204,17 +260,23 @@ We used R (Version 4.0.3; R Core Team, 2020) and the R-package \emph{papaja} (Ve
 \setlength{\leftskip}{0.5in}
 
 \hypertarget{refs}{}
-\leavevmode\hypertarget{ref-R-papaja}{}%
-Aust, F., \& Barth, M. (2020). \emph{papaja: Create APA manuscripts with R Markdown}. Retrieved from \url{https://github.com/crsh/papaja}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-R-papaja}{}}%
+Aust, F., \& Barth, M. (2020). \emph{{papaja}: {Create} {APA} manuscripts with {R Markdown}}. Retrieved from \url{https://github.com/crsh/papaja}
 
-\leavevmode\hypertarget{ref-gonzalez2019s}{}%
-Gonzalez, M. F., Capman, J. F., Oswald, F. L., Theys, E. R., \& Tomczak, D. L. (2019). ``Where's the io?'' Artificial intelligence and machine learning in talent management systems. \emph{Personnel Assessment and Decisions}, \emph{5}(3), 5.
+\leavevmode\vadjust pre{\hypertarget{ref-gonzalez2019s}{}}%
+Gonzalez, M. F., Capman, J. F., Oswald, F. L., Theys, E. R., \& Tomczak, D. L. (2019). {``Where's the IO?''} Artificial intelligence and machine learning in talent management systems. \emph{Personnel Assessment and Decisions}, \emph{5}(3), 5.
 
-\leavevmode\hypertarget{ref-R-base}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-gonzalez2021psychometric}{}}%
+Gonzalez, O. (2021). Psychometric and machine learning approaches for diagnostic assessment and tests of individual classification. \emph{Psychological Methods}, \emph{26}(2), 236.
+
+\leavevmode\vadjust pre{\hypertarget{ref-R-base}{}}%
 R Core Team. (2020). \emph{R: A language and environment for statistical computing}. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from \url{https://www.R-project.org/}
 
-\leavevmode\hypertarget{ref-sajjadiani2019using}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-sajjadiani2019using}{}}%
 Sajjadiani, S., Sojourner, A. J., Kammeyer-Mueller, J. D., \& Mykerezi, E. (2019). Using machine learning to translate applicant work history into predictors of performance and turnover. \emph{Journal of Applied Psychology}, \emph{104}(10), 1207--1225.
+
+\end{CSLReferences}
 
 \endgroup
 
