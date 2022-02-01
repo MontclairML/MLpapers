@@ -69,6 +69,8 @@ r_refs("r-references.bib")
 
 4. ML reliability when seeking to analyze information in text form quickly, with a different sample other than schools.
 
+5. Compare ML algorithms with SEM. ML updates itself over time, does that make it more useful? 
+
 
 
 *Sajjadiani, S., Sojourner, A. J., Kammeyer-Mueller, J. D., & Mykerezi, E. (2019). Using machine learning to translate applicant work history into predictors of performance and turnover. Journal of Applied Psychology, 104(10), 1207.*
